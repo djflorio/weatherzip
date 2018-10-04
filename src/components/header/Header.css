@@ -1,3 +1,7 @@
+.header {
+  height: 170px;
+}
+
 .header__sun {
   width: 120px;
   animation: bounceIn 1s;

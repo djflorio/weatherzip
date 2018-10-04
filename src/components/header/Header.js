@@ -2,7 +2,6 @@
 import React from 'react';
 
 // Assets
-import 'animate.css';
 import './Header.css';
 import sun from '../../assets/img/sun.svg';
 import cloud1 from '../../assets/img/cloud1.svg';
