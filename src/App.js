@@ -10,6 +10,7 @@ import './App.css';
 // Components
 import Header from './components/header/Header';
 import Search from './components/search/Search';
+import WeatherData from './components/weather-data/WeatherData';
 import AlertList from './components/alerts/Alerts';
 import { HourGlass } from './components/spinners/Spinners';
 
@@ -21,6 +22,8 @@ class App extends Component {
 
     this.state = {
       fetching: false,
+      data: [],
+      city: "",
       zip: "",
       country: "US",
       alerts: []
@@ -48,13 +51,19 @@ class App extends Component {
     this.setState({ fetching: true });
     axios.get(url)
     .then(res => {
-      this.setState({ fetching: false });
-      console.log(res);
+      this.setState({
+        fetching: false,
+        city: res.data.city.name,
+        data: res.data.list
+      });
+      console.log(res.data.list);
     })
     .catch(err => {
       this.setState({ fetching: false });
-      if (err.response.status === 404) {
+      if (err.response && err.response.status === 404) {
         this.addAlert("No weather data found for that location");
+      } else {
+        this.addAlert("An internal error occured");
       }
     });
   }
@@ -99,7 +108,7 @@ class App extends Component {
         />
         <Header />
         {
-          !this.state.fetching &&
+          !this.state.fetching && this.state.data.length === 0 &&
           <Search
             country={this.state.country}
             zip={this.state.zip}
@@ -113,6 +122,13 @@ class App extends Component {
             <HourGlass />
             <p className="App__fetching-text">Getting your forecast</p>
           </div>
+        }
+        {
+          !this.state.fetching && this.state.data.length > 0 &&
+          <WeatherData
+            city={this.state.city}
+            data={this.state.data}
+          />
         }
       </div>
     );
