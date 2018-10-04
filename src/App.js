@@ -1,25 +1,43 @@
+// Third Party
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+
+// Assets
+import './assets/Animations.css';
 import './App.css';
 
+// Components
+import Header from './parts/header/Header';
+
+
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.getWeather = this.getWeather.bind(this);
+  }
+
+  componentDidMount() {
+    //this.getWeather(10025);
+  }
+
+  getWeather(zip) {
+    const key = "396295ac4fa8d1ebfbd1229f7809fe56";
+    const url = `https://api.openweathermap.org/data/2.5/forecast/daily?zip=${zip},us&appid=${key}`;
+    axios.get(url)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Header />
       </div>
     );
   }

@@ -1,0 +1,32 @@
+.header__sun {
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  width: 120px;
+  animation: rotate 13s infinite linear;
+}
+
+.header__cloud {
+  position: absolute;
+}
+
+.header__cloud--1 {
+  top: 60px;
+  left: 10px;
+}
+
+.header__cloud--2 {
+  top: 60px;
+  left: 80px;
+}
+
+.header__title {
+  position: absolute;
+  top: 50px;
+  left: 90px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 3em;
+  color: #efefef;
+  text-shadow: 0 0 2px #111;
+  margin: 0;
+}
