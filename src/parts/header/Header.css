@@ -1,8 +1,12 @@
 .header__sun {
+  width: 120px;
+  animation: bounceIn 1s;
+}
+
+.header__sun-container {
   position: absolute;
   top: 10px;
   left: 40px;
-  width: 120px;
   animation: rotate 13s infinite linear;
 }
 
@@ -13,11 +17,13 @@
 .header__cloud--1 {
   top: 60px;
   left: 10px;
+  animation: bounceIn 1s 0.1s both;
 }
 
 .header__cloud--2 {
   top: 60px;
   left: 80px;
+  animation: bounceIn 1s 0.3s both;
 }
 
 .header__title {
@@ -29,4 +35,5 @@
   color: #efefef;
   text-shadow: 0 0 2px #111;
   margin: 0;
+  animation: bounceInLeft 1s 0.3s both;
 }
