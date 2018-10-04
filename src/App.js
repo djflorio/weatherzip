@@ -32,7 +32,8 @@ class App extends Component {
     this.removeAlert = this.removeAlert.bind(this);
   }
 
-  getWeather() {
+  getWeather(e) {
+    e.preventDefault();
     const zip = this.state.zip;
 
     if (zip === "") {
@@ -52,7 +53,9 @@ class App extends Component {
     })
     .catch(err => {
       this.setState({ fetching: false });
-      console.error(err);
+      if (err.response.status === 404) {
+        this.addAlert("No weather data found for that location");
+      }
     });
   }
 

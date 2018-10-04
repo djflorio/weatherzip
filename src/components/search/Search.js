@@ -10,7 +10,7 @@ import countries from '../../assets/countrycodes';
 const Search = (props) => {
   return (
     <div className="search">
-      <div className="search__inner">
+      <form onSubmit={props.onSubmit} className="search__form">
         <div className="search__country">
           <select
             className="search__country-select"
@@ -32,10 +32,10 @@ const Search = (props) => {
           value={props.zip}
           onChange={props.onChange}
         />
-        <button onClick={props.onSubmit} className="search__submit">
+        <button type="submit" className="search__submit">
           Get Forecast
         </button>
-      </div>
+      </form>
     </div>
   );
 }
