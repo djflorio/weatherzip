@@ -1,0 +1,10 @@
+.App__fetching {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.App__fetching-text {
+  margin: 0;
+  color: #fff;
+  font-weight: 800;
+}

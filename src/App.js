@@ -11,6 +11,7 @@ import './App.css';
 import Header from './components/header/Header';
 import Search from './components/search/Search';
 import AlertList from './components/alerts/Alerts';
+import { HourGlass } from './components/spinners/Spinners';
 
 
 class App extends Component {
@@ -102,6 +103,13 @@ class App extends Component {
             onChange={this.setValue}
             onSubmit={this.getWeather}
           />
+        }
+        {
+          this.state.fetching &&
+          <div className="App__fetching">
+            <HourGlass />
+            <p className="App__fetching-text">Getting your forecast</p>
+          </div>
         }
       </div>
     );
