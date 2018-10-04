@@ -32,7 +32,7 @@ const Search = (props) => {
           value={props.zip}
           onChange={props.onChange}
         />
-        <button className="search__submit">
+        <button onClick={props.onSubmit} className="search__submit">
           Get Forecast
         </button>
       </div>
@@ -43,7 +43,8 @@ const Search = (props) => {
 Search.propTypes = {
   country: PropTypes.string.isRequired,
   zip: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 }
 
 export default Search;

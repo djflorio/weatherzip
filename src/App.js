@@ -1,6 +1,7 @@
 // Third Party
 import React, { Component } from 'react';
 import axios from 'axios';
+import uniqid from 'uniqid';
 
 // Assets
 import './assets/Animations.css';
@@ -9,6 +10,7 @@ import './App.css';
 // Components
 import Header from './components/header/Header';
 import Search from './components/search/Search';
+import AlertList from './components/alerts/Alerts';
 
 
 class App extends Component {
@@ -19,25 +21,36 @@ class App extends Component {
     this.state = {
       fetching: false,
       zip: "",
-      country: "US"
+      country: "US",
+      alerts: []
     };
 
     this.getWeather = this.getWeather.bind(this);
     this.setValue = this.setValue.bind(this);
+    this.addAlert = this.addAlert.bind(this);
+    this.removeAlert = this.removeAlert.bind(this);
   }
 
-  componentDidMount() {
-    //this.getWeather(10025, 'us');
-  }
+  getWeather() {
+    const zip = this.state.zip;
 
-  getWeather(zip, country) {
+    if (zip === "") {
+      this.addAlert("Zip code required");
+      return;
+    }
+
+    const country = this.state.country;
     const key = "396295ac4fa8d1ebfbd1229f7809fe56";
     const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zip},${country}&units=imperial&appid=${key}`;
+
+    this.setState({ fetching: true });
     axios.get(url)
-    .then((res) => {
+    .then(res => {
+      this.setState({ fetching: false });
       console.log(res);
     })
-    .catch((err) => {
+    .catch(err => {
+      this.setState({ fetching: false });
       console.error(err);
     });
   }
@@ -48,15 +61,48 @@ class App extends Component {
     });
   }
 
+  addAlert(message) {
+    const newAlerts = this.state.alerts.slice();
+    const alert = {
+      id: uniqid(),
+      message: message
+    };
+    newAlerts.push(alert);
+    this.setState({
+      alerts: newAlerts
+    });
+  }
+
+  removeAlert(id) {
+    const newAlerts = this.state.alerts.slice();
+    for (let i = 0; i < newAlerts.length; i++) {
+      if (newAlerts[i].id === id) {
+        newAlerts.splice(i, 1);
+        break;
+      }
+    }
+    this.setState({
+      alerts: newAlerts
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
-        <Search
-          country={this.state.country}
-          zip={this.state.zip}
-          onChange={this.setValue}
+        <AlertList
+          alerts={this.state.alerts}
+          onRemove={this.removeAlert}
         />
+        <Header />
+        {
+          !this.state.fetching &&
+          <Search
+            country={this.state.country}
+            zip={this.state.zip}
+            onChange={this.setValue}
+            onSubmit={this.getWeather}
+          />
+        }
       </div>
     );
   }
