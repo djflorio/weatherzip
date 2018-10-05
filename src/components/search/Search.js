@@ -6,20 +6,9 @@ import PropTypes from 'prop-types';
 import './Search.css';
 import countries from '../../assets/countrycodes';
 
+// Components
+import UnitPicker from '../unit-picker/UnitPicker';
 
-const UnitPicker = (props) => (
-  <div className="unit-picker">
-    <div
-      className={"unit-picker__choice" + (props.units === "imperial" ? " unit-picker__choice--active" : "")}
-      onClick={() => props.onChange("imperial")}>
-      &deg;F
-    </div>
-    <div className={"unit-picker__choice" + (props.units === "metric" ? " unit-picker__choice--active" : "")}
-      onClick={() => props.onChange("metric")}>
-      &deg;C
-    </div>
-  </div>
-);
 
 const Search = (props) => {
   return (
@@ -53,11 +42,6 @@ const Search = (props) => {
       </form>
     </div>
   );
-}
-
-UnitPicker.propTypes = {
-  units: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
 }
 
 Search.propTypes = {

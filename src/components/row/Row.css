@@ -1,0 +1,43 @@
+.row {
+  margin: 10px;
+  padding: 10px;
+  color: rgb(0, 92, 104);
+}
+
+.row td {
+  border-bottom: solid 1px rgb(0, 92, 104);
+}
+
+.row__date {
+  display: inline-block;
+  text-align: center;
+  font-weight: 800;
+}
+
+.row__date-day {
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.row__date-time {
+  margin: 0;
+}
+
+.row__description {
+  text-transform: capitalize;
+  font-weight: 600; 
+}
+
+@media (max-width: 450px) {
+  .row__date-day {
+    font-size: 0.8em;
+  }
+  
+  .row__date-time {
+    font-size: 0.6em;
+  }
+
+  .row__description {
+    font-size: 0.8em;
+  }
+}

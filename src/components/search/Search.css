@@ -22,29 +22,6 @@
   animation: bounceIn 1s;
 }
 
-.unit-picker {
-  background-color: #fff;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 2px #222;
-  animation: bounceIn 1s 0.1s both;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.unit-picker__choice {
-  display: inline-block;
-  width: 50%;
-  font-size: 1.3em;
-  padding: 8px 0;
-  color: #aaa;
-}
-
-.unit-picker__choice--active {
-  background-color: rgb(30, 133, 180);
-  color: #fff;
-}
-
 .search__zip {
   width: 100%;
   font-size: 1em;
