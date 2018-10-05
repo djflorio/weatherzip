@@ -9,8 +9,12 @@ import './WeatherData.css';
 
 const Thermometer = (props) => {
 
-  const max = props.units === "imperial" ? 100 : 38;
-  let width = (props.temp / max) * 100;
+  let width = props.temp;
+  if (props.units === "metric") {
+    // Convert scale to F for visual purposes only
+    width = width * 1.8 + 32;
+  }
+
   if (width < 0) {
     width = 0;
   } else if (width > 100) {
@@ -56,7 +60,7 @@ const Entry = (props) => {
         <p className="entry__description">{ props.weather }</p>
       </td>
       <td>
-        <Thermometer units="imperial" temp={props.temp} />
+        <Thermometer units={props.units} temp={props.temp} />
       </td>
     </tr>
   );
@@ -79,6 +83,7 @@ const WeatherData = (props) => (
           <Entry
             key={entry.dt}
             icon={"http://openweathermap.org/img/w/" + entry.weather[0].icon + ".png"}
+            units={props.units}
             time={entry.dt_txt}
             weather={entry.weather[0].description}
             temp={entry.main.temp}
@@ -96,6 +101,7 @@ Thermometer.propTypes = {
 }
 
 Entry.propTypes = {
+  units: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
   weather: PropTypes.string.isRequired,
@@ -104,6 +110,7 @@ Entry.propTypes = {
 
 WeatherData.propTypes = {
   city: PropTypes.string.isRequired,
+  units: PropTypes.string.isRequired,
   data: PropTypes.array.isRequired,
   onNewSearch: PropTypes.func.isRequired
 }

@@ -7,6 +7,20 @@ import './Search.css';
 import countries from '../../assets/countrycodes';
 
 
+const UnitPicker = (props) => (
+  <div className="unit-picker">
+    <div
+      className={"unit-picker__choice" + (props.units === "imperial" ? " unit-picker__choice--active" : "")}
+      onClick={() => props.onChange("imperial")}>
+      &deg;F
+    </div>
+    <div className={"unit-picker__choice" + (props.units === "metric" ? " unit-picker__choice--active" : "")}
+      onClick={() => props.onChange("metric")}>
+      &deg;C
+    </div>
+  </div>
+);
+
 const Search = (props) => {
   return (
     <div className="search">
@@ -24,6 +38,7 @@ const Search = (props) => {
             }
           </select>
         </div>
+        <UnitPicker units={props.units} onChange={props.onUnitChange} />
         <input
           className="search__zip"
           name="zip"
@@ -40,11 +55,18 @@ const Search = (props) => {
   );
 }
 
+UnitPicker.propTypes = {
+  units: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+}
+
 Search.propTypes = {
   country: PropTypes.string.isRequired,
   zip: PropTypes.string.isRequired,
+  units: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onUnitChange: PropTypes.func.isRequired
 }
 
 export default Search;

@@ -26,6 +26,7 @@ class App extends Component {
       city: "",
       zip: "",
       country: "US",
+      units: "imperial",
       alerts: []
     };
 
@@ -34,6 +35,7 @@ class App extends Component {
     this.addAlert = this.addAlert.bind(this);
     this.removeAlert = this.removeAlert.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
+    this.setUnits = this.setUnits.bind(this);
   }
 
   getWeather(e) {
@@ -46,8 +48,11 @@ class App extends Component {
     }
 
     const country = this.state.country;
+    const units = this.state.units;
     const key = "396295ac4fa8d1ebfbd1229f7809fe56";
-    const url = `https://api.openweathermap.org/data/2.5/forecast?zip=${zip},${country}&units=imperial&appid=${key}`;
+    const api = "https://api.openweathermap.org/data/2.5/forecast";
+    const options = `?zip=${zip},${country}&units=${units}&appid=${key}`;
+    const url = api + options;
 
     this.setState({ fetching: true });
     axios.get(url)
@@ -57,7 +62,6 @@ class App extends Component {
         city: res.data.city.name,
         data: res.data.list
       });
-      console.log(res.data.list);
     })
     .catch(err => {
       this.setState({ fetching: false });
@@ -107,6 +111,12 @@ class App extends Component {
     });
   }
 
+  setUnits(units) {
+    this.setState({
+      units: units
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -120,7 +130,9 @@ class App extends Component {
           <Search
             country={this.state.country}
             zip={this.state.zip}
+            units={this.state.units}
             onChange={this.setValue}
+            onUnitChange={this.setUnits}
             onSubmit={this.getWeather}
           />
         }
@@ -136,6 +148,7 @@ class App extends Component {
           <WeatherData
             city={this.state.city}
             data={this.state.data}
+            units={this.state.units}
             onNewSearch={this.resetSearch}
           />
         }
