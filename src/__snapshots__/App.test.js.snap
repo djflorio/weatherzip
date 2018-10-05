@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="App"
+>
+  <AlertList
+    alerts={Array []}
+    onRemove={[Function]}
+  />
+  <Header />
+  <Search
+    country="US"
+    onChange={[Function]}
+    onSubmit={[Function]}
+    onUnitChange={[Function]}
+    units="imperial"
+    zip=""
+  />
+  <Footer />
+</div>
+`;
