@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<tr
+  className="row"
+>
+  <td>
+    <div
+      className="row__date"
+    >
+      <p
+        className="row__date-day"
+      >
+        Thu, Jul 4th
+      </p>
+      <p
+        className="row__date-time"
+      >
+        12:00 pm
+      </p>
+    </div>
+  </td>
+  <td>
+    <img
+      alt="weather icon"
+      className="row__icon"
+      src="icon"
+    />
+  </td>
+  <td>
+    <p
+      className="row__description"
+    >
+      Sunny
+    </p>
+  </td>
+  <td>
+    <Thermometer
+      temp={70}
+      units="imperial"
+    />
+  </td>
+</tr>
+`;
