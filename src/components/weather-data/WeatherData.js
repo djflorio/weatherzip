@@ -64,6 +64,14 @@ const Entry = (props) => {
 
 const WeatherData = (props) => (
   <div className="weather-data">
+    <p className="weather-data__header">
+      5-Day Forecast for {props.city}
+    </p>
+    <button
+      className="weather-data__new"
+      onClick={props.onNewSearch}>
+      Search Again
+    </button>
     <table className="weather-data__list">
       <tbody>
       {
@@ -96,7 +104,8 @@ Entry.propTypes = {
 
 WeatherData.propTypes = {
   city: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  onNewSearch: PropTypes.func.isRequired
 }
 
 export default WeatherData;

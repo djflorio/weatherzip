@@ -33,6 +33,7 @@ class App extends Component {
     this.setValue = this.setValue.bind(this);
     this.addAlert = this.addAlert.bind(this);
     this.removeAlert = this.removeAlert.bind(this);
+    this.resetSearch = this.resetSearch.bind(this);
   }
 
   getWeather(e) {
@@ -99,6 +100,13 @@ class App extends Component {
     });
   }
 
+  resetSearch() {
+    this.setState({
+      fetching: false,
+      data: []
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -128,6 +136,7 @@ class App extends Component {
           <WeatherData
             city={this.state.city}
             data={this.state.data}
+            onNewSearch={this.resetSearch}
           />
         }
       </div>
