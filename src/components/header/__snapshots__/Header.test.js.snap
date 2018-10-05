@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="header"
+>
+  <span
+    className="header__sun-container"
+  >
+    <img
+      alt="sun"
+      className="header__sun"
+      src="sun.svg"
+    />
+  </span>
+  <img
+    alt="cloud"
+    className="header__cloud header__cloud--1"
+    src="cloud1.svg"
+  />
+  <img
+    alt="cloud"
+    className="header__cloud header__cloud--2"
+    src="cloud2.svg"
+  />
+  <h1
+    className="header__title"
+  >
+    WeatherZip
+  </h1>
+</div>
+`;
