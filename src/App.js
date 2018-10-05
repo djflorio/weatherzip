@@ -11,7 +11,7 @@ import Header from './components/header/Header';
 import Search from './components/search/Search';
 import WeatherTable from './components/weather-table/WeatherTable';
 import Footer from './components/footer/Footer';
-import AlertList from './components/alerts/Alerts';
+import AlertList from './components/alert-list/AlertList';
 import SearchLoader from './components/search-loader/SearchLoader';
 
 

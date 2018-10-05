@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Assets
-import './Alerts.css';
+import './Alert.css';
 
 
 class Alert extends React.Component {
@@ -27,28 +27,9 @@ class Alert extends React.Component {
   }
 }
 
-const AlertList = (props) => (
-  <ul className="alert-list">
-    {
-      props.alerts.map(a => (
-        <Alert
-          key={a.id}
-          alert={a}
-          onRemove={props.onRemove}
-        />
-      ))
-    }
-  </ul>
-);
-
-AlertList.propTypes = {
-  alerts: PropTypes.array.isRequired,
-  onRemove: PropTypes.func.isRequired
-}
-
 Alert.propTypes = {
   alert: PropTypes.object.isRequired,
   onRemove: PropTypes.func.isRequired
 }
 
-export default AlertList;
+export default Alert;
