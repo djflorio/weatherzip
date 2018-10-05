@@ -56,5 +56,10 @@ describe('addAlert', () => {
 });
 
 /*describe('getWeather', () => {
-  it('')
+  it('should add alert to state if no zip in state', () => {
+    const wrapper = setupShallow();
+    wrapper.state().zip = "";
+    wrapper.instance().getWeather(wrapper.simulate("change"));
+    expect(wrapper.state().alerts.length).toEqual(1);
+  });
 });*/
