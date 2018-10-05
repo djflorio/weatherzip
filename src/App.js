@@ -11,6 +11,7 @@ import './App.css';
 import Header from './components/header/Header';
 import Search from './components/search/Search';
 import WeatherData from './components/weather-data/WeatherData';
+import Footer from './components/footer/Footer';
 import AlertList from './components/alerts/Alerts';
 import { HourGlass } from './components/spinners/Spinners';
 
@@ -152,6 +153,7 @@ class App extends Component {
             onNewSearch={this.resetSearch}
           />
         }
+        <Footer />
       </div>
     );
   }
