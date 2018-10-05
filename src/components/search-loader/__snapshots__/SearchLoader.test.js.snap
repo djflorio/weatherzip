@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="search-loader"
+>
+  <HourGlass />
+  <p
+    className="search-loader__text"
+  >
+    Getting your forecast
+  </p>
+</div>
+`;
