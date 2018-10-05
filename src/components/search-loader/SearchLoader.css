@@ -1,9 +1,9 @@
-.App__fetching {
+.search-loader {
   padding: 30px 0;
   text-align: center;
 }
 
-.App__fetching-text {
+.search-loader__text {
   margin: 0;
   color: #fff;
   font-weight: 800;

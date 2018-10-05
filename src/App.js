@@ -5,7 +5,6 @@ import uniqid from 'uniqid';
 
 // Assets
 import './assets/Animations.css';
-import './App.css';
 
 // Components
 import Header from './components/header/Header';
@@ -13,7 +12,7 @@ import Search from './components/search/Search';
 import WeatherTable from './components/weather-table/WeatherTable';
 import Footer from './components/footer/Footer';
 import AlertList from './components/alerts/Alerts';
-import { HourGlass } from './components/spinners/Spinners';
+import SearchLoader from './components/search-loader/SearchLoader';
 
 
 class App extends Component {
@@ -139,10 +138,7 @@ class App extends Component {
         }
         {
           this.state.fetching &&
-          <div className="App__fetching">
-            <HourGlass />
-            <p className="App__fetching-text">Getting your forecast</p>
-          </div>
+          <SearchLoader />
         }
         {
           !this.state.fetching && this.state.data.length > 0 &&
