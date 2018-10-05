@@ -32,7 +32,7 @@ it("calls onNewSearch when new search is clicked", () => {
 it("renders city name", () => {
   const wrapper = shallow(
     <WeatherTable
-      city="New York"
+      city="Chicago"
       units="imperial"
       data={[]}
       onNewSearch={() => {}}
@@ -41,6 +41,6 @@ it("renders city name", () => {
 
   const header = wrapper.find(".weather-table__header").text();
 
-  expect(header).toContain("New York");
+  expect(header).toContain("Chicago");
 
 });
