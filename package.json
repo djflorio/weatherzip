@@ -26,5 +26,10 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "http://weatherzip.danflorio.com"
+  "homepage": "http://weatherzip.danflorio.com",
+  "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4"
+  }
 }

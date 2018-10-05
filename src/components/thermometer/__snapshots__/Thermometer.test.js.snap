@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="thermometer"
+>
+  <span
+    className="thermometer__temp"
+  >
+    70
+    °
+  </span>
+  <div
+    className="thermometer__fill"
+    style={
+      Object {
+        "width": 70,
+      }
+    }
+  />
+</div>
+`;
