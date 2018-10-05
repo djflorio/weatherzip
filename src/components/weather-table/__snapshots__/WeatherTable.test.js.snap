@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="weather-table"
+>
+  <p
+    className="weather-table__header"
+  >
+    5-Day Forecast for 
+    New York
+  </p>
+  <button
+    className="weather-table__new"
+    onClick={[Function]}
+  >
+    Search Again
+  </button>
+  <table
+    className="weather-table__list"
+  >
+    <tbody />
+  </table>
+</div>
+`;
