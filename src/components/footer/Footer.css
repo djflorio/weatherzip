@@ -8,3 +8,9 @@
 .footer__link {
   color: #126b94;
 }
+
+@media (max-width: 450px) {
+  .footer {
+    font-size: 0.8em;
+  }
+}
