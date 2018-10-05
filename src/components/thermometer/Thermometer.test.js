@@ -12,7 +12,7 @@ it("renders correctly", () => {
 });
 
 it("rounds the temperature", () => {
-  const wrapper = mount(
+  const wrapper = shallow(
     <Thermometer
       units="imperial"
       temp={70.6}

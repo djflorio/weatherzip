@@ -1,28 +1,28 @@
 import WeatherTable from './WeatherTable';
 
-it("renders correctly", () => {
-  const wrapper = shallow(
-    <WeatherTable
-      city="New York"
-      units="imperial"
-      data={[]}
-      onNewSearch={() => {}}
-    />
-  );
+const initProps = {
+  city: "New York",
+  units: "imperial",
+  data: [],
+  onNewSearch: () => {}
+};
 
+function setupShallow(props = initProps) {
+  return shallow(<WeatherTable {...props} />);
+}
+
+it("renders correctly", () => {
+  const wrapper = setupShallow();
   expect(wrapper).toMatchSnapshot();
 });
 
 it("calls onNewSearch when new search is clicked", () => {
   const spy = sinon.spy();
-  const wrapper = shallow(
-    <WeatherTable
-      city="New York"
-      units="imperial"
-      data={[]}
-      onNewSearch={spy}
-    />
-  );
+  const props = {
+    ...initProps,
+    onNewSearch: spy
+  };
+  const wrapper = setupShallow(props);
 
   wrapper.find(".weather-table__new").simulate("click");
 
@@ -30,17 +30,13 @@ it("calls onNewSearch when new search is clicked", () => {
 });
 
 it("renders city name", () => {
-  const wrapper = shallow(
-    <WeatherTable
-      city="Chicago"
-      units="imperial"
-      data={[]}
-      onNewSearch={() => {}}
-    />
-  );
+  const props = {
+    ...initProps,
+    city: "Chicago"
+  };
+  const wrapper = setupShallow(props);
 
   const header = wrapper.find(".weather-table__header").text();
 
   expect(header).toContain("Chicago");
-
 });
