@@ -7,7 +7,7 @@ const initProps = {
   onChange: () => {},
   onSubmit: () => {},
   onUnitChange: () => {}
-}
+};
 
 function setupShallow(props = initProps) {
   return shallow(<Search {...props} />);
