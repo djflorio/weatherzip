@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with imperial 1`] = `
+<div
+  className="unit-picker"
+>
+  <div
+    className="unit-picker__choice unit-picker__choice--active"
+    onClick={[Function]}
+  >
+    °F
+  </div>
+  <div
+    className="unit-picker__choice"
+    onClick={[Function]}
+  >
+    °C
+  </div>
+</div>
+`;
+
+exports[`renders correctly with metric 1`] = `
+<div
+  className="unit-picker"
+>
+  <div
+    className="unit-picker__choice"
+    onClick={[Function]}
+  >
+    °F
+  </div>
+  <div
+    className="unit-picker__choice unit-picker__choice--active"
+    onClick={[Function]}
+  >
+    °C
+  </div>
+</div>
+`;
