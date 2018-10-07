@@ -1,5 +1,4 @@
 import App from './App';
-import mockAxios from "axios";
 
 function setupShallow() {
   return shallow(<App />);
