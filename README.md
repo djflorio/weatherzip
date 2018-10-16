@@ -25,4 +25,3 @@ I knew that for the smoothest user experience, the data would have to be loaded 
 * Make my own weather icons, rather than use the ones provided by the API, to better suite the overall design.
 * Come up with a way to separate the results by day, rather than repeating the day in each row.
   * This would involve writing a method that iterates the API results, and use an algorithm to place them in an object where each key is a day, and each value is an array of weather data for different times on that day.
-* Unit test each component and method.
